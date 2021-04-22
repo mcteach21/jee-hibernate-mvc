@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE urlrewrite
+    PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+    "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<urlrewrite>
+	<rule>
+		<from>^/$</from>
+		<to>/front</to>
+	</rule>
+	<rule>
+		<from>^/([a-z]+)$</from>
+		<to>/front?page=$1</to>
+	</rule>		
+	<rule>
+		<from>^/([a-z]+)/([a-z]*)$</from>
+		<to>/front?page=$1&amp;action=$2</to>
+	</rule>
+	<rule>
+		<from>^/([a-z]+)/([a-z]*)/$</from>
+		<to>/front?page=$1&amp;action=$2</to>
+	</rule>
+	<!-- <rule>
+		<from>^/([a-z]+)/([a-z]+)/([a-z]*)/$</from>
+		<to>/front?controller=$1&amp;page=$2&amp;action=$3</to>
+	</rule> -->
+	<rule>
+		<condition type="request-uri">^(?!.*\.(?:jpg|png|css|js)$).*$</condition>
+		<from>^/(.*).css$</from>
+		<to>$1.css</to>
+	</rule>
+	<rule>
+		<condition type="request-uri">^(?!.*\.(?:jpg|png|css|js)$).*$</condition>
+		<from>^/(.*).js$</from>
+		<to>$1.js</to>
+	</rule>
+	<rule>
+		<condition type="request-uri">^(?!.*\.(?:jpg|png|css|js)$).*$</condition>
+		<from>^/(.*).png$</from>
+		<to>$1.png</to>
+	</rule>
+
+	<!-- <rule> <from>^/(.*)$</from> <to>/?page=$1</to> </rule> <rule> <from>^/(.*)/(.*)$</from> 
+		<to>/$1&amp;action=$2</to> </rule> -->
+	<!-- ************************************** -->
+	<!-- OK -->
+
+	<!-- <rule> <from>/(.*)/(.*)/</from> <to>/?page=$1&amp;action=$2</to> </rule> -->
+
+	<!-- <rule> <from>/(.*)/(.*)</from> <to>/?page=$1&amp;action=$2</to> </rule> -->
+	<!-- <rule> <from>/(.*)</from> <to>/?page=$1</to> </rule> <rule> <from>/(.*)/</from> 
+		<to>/?page=$1</to> </rule> -->
+
+
+	<!-- ************************************** -->
+
+	<!-- <rule> <from>static/(.*).css</from> <to>assets/css/$1.css</to> </rule> 
+		<rule> <from>/$</from> <to>/main</to> </rule> <rule> <name>RULE: ignore js 
+		and css</name> <from>/^(.*(\.css|\.js|\.png))$</from> <to>/main</to> </rule> 
+		<rule> <from>/main/(.*)</from> <to>/main?page=$1</to> </rule> -->
+
+
+</urlrewrite>
